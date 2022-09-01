@@ -12,6 +12,9 @@ body {
 p{
     font-size: 0.8em;
 }
+h1{
+    line-height:80px !important;
+}
 nav{
     display: flex !important;
     flex-direction: row !important;

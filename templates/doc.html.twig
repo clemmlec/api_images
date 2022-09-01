@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}doc | {{ parent() }}{% endblock %}
+
+{% block body %}
+    <section class="container">
+       <h1>api_images est en cours de développement</h1>
+       <p>Pour toutes question / suggestions contact l'équipe de dev sur la page <button class="btn success"><a href="{{ path('contact') }}">contact</a></button></p>
+    
+        <p>suis nous sur le dépot <a class="btn" href="https://github.com/clemmlec/api_images"> git hub</a></p>
+        <img src="https://127.0.0.1:8000/photo" alt="">
+    </section>
+{% endblock %}

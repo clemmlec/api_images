@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}doc | {{ parent() }}{% endblock %}
+
+{% block body %}
+    <section class="container">
+       <h1>contact notre équipe</h1>
+
+    {{ form_start(form,{'attr': { 'class': 'field' }}) }}
+        {{ form_row(form.nom, {'attr': { 'class': 'field' }}) }}
+        {{ form_row(form.email, {'attr': { 'class': 'field' }}) }}
+        {{ form_row(form.message, {'attr': { 'class': 'field' }}) }}
+        <button class="btn">{{ button_label|default('Envoyer') }}</button>
+    {{ form_end(form) }}
+
+
+    </section>
+{% endblock %}

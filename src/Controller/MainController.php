@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Form\ContactType;
+use App\Services\MailerService;
 use App\Repository\ImagesRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,18 +15,34 @@ class MainController extends AbstractController
 {
 
     #[Route('/', name: 'app')]
-    public function newImage()
+    public function index()
     {
        return $this->render('index.html.twig');
     }
 
-    #[Route('/main', name: 'app_main')]
-    public function index(): JsonResponse
+    #[Route('/doc', name: 'doc')]
+    public function doc()
     {
-        return $this->json([
-            'message' => 'Welcome to your new controller!',
-            'path' => 'src/Controller/MainController.php',
+        return $this->render('doc.html.twig');
+    }
+
+    #[Route('/contact', name: 'contact')]
+    public function contact(Request $request, MailerService $mailer)
+    {
+        $form = $this->createForm(ContactType::class);
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()) {
+            $contactFormData = $form->getData();
+            $subject = 'Demande de contact sur votre site de ' . $contactFormData['email'];
+            $content = $contactFormData['nom'] . ' vous a envoyé le message suivant: ' . $contactFormData['message'];
+            $mailer->sendEmail(subject: $subject, content: $content);
+            $this->addFlash('success', 'Votre message a été envoyé');
+            return $this->redirectToRoute('contact');
+        }
+        return $this->render('contact.html.twig', [
+            'form' => $form->createView()
         ]);
+ 
     }
 
     #[Route('/photo', name: 'photo')]
