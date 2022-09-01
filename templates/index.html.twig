@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}home | {{ parent() }}{% endblock %}
+
+{% block body %}
+    <section class="container">
+        <h1>Api_images</h1>
+        <div class="container light">
+            <aside class="p-5">
+                Utilise des images aléatoires pour tes constructions de sites
+            </aside>
+        </div>
+        <h2>Très simple à utiliser</h2>
+        <div class="container light">
+            <p class="p-5">pour génerer une image aléatoire utilise la chemin :</p>
+            <button class="btn primary" data-copy-link>www.api_images/photo</button>
+            <img src="https://127.0.0.1:8000/photo">
+        </div>
+        
+        <div class="container light">
+            <h2 class="p-5">Pour trier par catégorie :</h2>
+            <p>il suffit de rajouter un tag : </p>
+            <button class="btn primary" data-copy-link>www.api_images/photo/food</button>
+            <img src="https://127.0.0.1:8000/photo/food">
+            <button class="btn primary" data-copy-link>www.api_images/photo/tech</button>
+            <img src="https://127.0.0.1:8000/photo/tech">
+            <button class="btn primary" data-copy-link>www.api_images/photo/nature</button>
+            <img src="https://127.0.0.1:8000/photo/nature">
+            <button class="btn primary" data-copy-link>www.api_images/photo/clothes</button>
+            <img src="https://127.0.0.1:8000/photo/clothes">
+            <button class="btn primary" data-copy-link>www.api_images/photo/car</button>
+            <img src="https://127.0.0.1:8000/photo/car">
+        </div>
+        
+    </section>
+{% endblock %}

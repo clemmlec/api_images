@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Antique+Soft&display=swap');
+body {
+    background-color: lightgray;
+}
+*{
+    font-family: 'Zen Antique Soft', serif;
+    padding: 5px;
+}
+.p-5{
+    padding: 10px;
+}
+p{
+    font-size: 0.8em;
+}
+img{
+
+    max-width: 500px;
+    object-fit: cover;
+}
+.container{
+    z-index: 0 !important;
+}

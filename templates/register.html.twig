@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New User | {{ parent() }}{% endblock %}
+
+{% block body %}
+    {# <a class="btn btn-secondary" href="{{ path('./Home/index') }}">back</a> #}
+     <section class="container-fluid mt-4">
+        <div class="card w-50 mx-auto mt-4 p-3">
+            <h1 class="text-center pb-3">Nouvel utilisateur</h1>
+            {{ form_start(form) }}
+                <div class="row">
+
+                        {{ form_widget( form.email,{'attr': {'placeholder': 'email', 'class': 'mb-4' }} ) }}
+                        {{ form_widget( form.password,{'attr': {'placeholder': 'mots de passe', 'class': 'mb-4' }} ) }}
+           
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <div class="col-md-6">
+                            {{ form_row( form.roles,{'attr': { 'class': 'mb-4 w-50 mx-auto' }} ) }}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="mt-4 text-center">
+                    <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+                </div>
+                {{ form_widget( form._token)}}
+            {{ form_end(form,{render_rest: false}) }}
+        </div>
+    </section>
+{% endblock %}
