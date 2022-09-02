@@ -1,10 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Zen+Antique+Soft&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 body {
     background-color: lightgray;
 }
 *{
-    font-family: 'Zen Antique Soft', serif;
-    padding: 5px;
+    font-family: 'Press Start 2P', cursive;
+    /* padding: 10px; */
+    line-height:50px !important;
+
 }
 .p-5{
     padding: 10px;
@@ -13,6 +16,7 @@ p{
     font-size: 0.8em;
 }
 h1{
+    font-family: 'Zen Antique Soft', serif;
     line-height:80px !important;
 }
 nav{

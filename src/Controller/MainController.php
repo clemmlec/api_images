@@ -51,9 +51,10 @@ class MainController extends AbstractController
 
         $files= $repo->findRandImage();
 
-        $filename = $this->getParameter('kernel.project_dir') . '\public\images\\' . $files[0]->getImageName();
+        // $filename = $this->getParameter('kernel.project_dir') . '\public\images\\' . $files[0]->getImageName();
 
-        return new BinaryFileResponse($filename);
+        // return new BinaryFileResponse($filename);
+        return $this->redirect('https://127.0.0.1:8000/images/' . $files[0]->getImageName());
 
        
     }
@@ -71,10 +72,9 @@ class MainController extends AbstractController
             );
         }
 
-        $filename = $this->getParameter('kernel.project_dir') . '\public\images\\' . $files[0]->getImageName();
+        // $filename = $this->getParameter('kernel.project_dir') . '\public\images\\' . $files[0]->getImageName();
 
-        return new BinaryFileResponse($filename);
-
-       
+        // return new BinaryFileResponse($filename);
+        return $this->redirect('https://127.0.0.1:8000/images/' . $files[0]->getImageName());
     }
 }

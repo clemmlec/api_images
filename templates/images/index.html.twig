@@ -22,7 +22,7 @@
         {% for image in images %}
             <tr>
                 <td>{{ image.id }}</td>
-                <td>{{ image.imageName }}</td>
+                <td>{{ image.imageName | slice(0,10) ~ "..."}}</td>
                 <td>{{ image.imageSize }}</td>
                 <td>{{ image.imageUpdatedAt ? image.imageUpdatedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
