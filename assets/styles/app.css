@@ -71,9 +71,26 @@ ul{
     padding: 5px;
 }
 .logo{
-    width: 75px !important;
+    height: 50px !important;
 }
 .input{
     display: inline;
     margin: auto;
 }
+.grid2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.end{
+    text-align: center;
+}
+td, th{
+    font-size: 0.5em;
+}
+.table{
+    width: 100%;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+}
+
+    

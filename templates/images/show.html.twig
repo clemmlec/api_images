@@ -9,16 +9,12 @@
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ image.id }}</td>
-            </tr>
-            <tr>
                 <th>ImageName</th>
-                <td>{{ image.imageName }}</td>
+                <td>{{ image.imageName | slice(0,20) ~ "..." }}</td>
             </tr>
             <tr>
-                <th>ImageSize</th>
-                <td>{{ image.imageSize }}</td>
+                <th>Image</th>
+                <td><img src="{{vich_uploader_asset(image, 'imageFile')}}"/></td>
             </tr>
             <tr>
                 <th>ImageUpdatedAt</th>

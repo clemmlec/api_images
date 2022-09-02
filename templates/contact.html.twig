@@ -7,12 +7,9 @@
        <h1>contact notre équipe</h1>
 
     {{ form_start(form,{'attr': { 'class': 'field' }}) }}
-        <h2>Nom</h2>
-        {{ form_widget(form.nom, {'attr': { 'class': 'field input ', 'autofocus': true}}) }}
-        <h2>Email</h2>
-        {{ form_widget(form.email, {'attr': { 'class': 'field input' }}) }}
-        <h2>Message</h2>
-        {{ form_widget(form.message, {'attr': { 'class': 'field input' }}) }}
+        {{ form_widget(form.nom, {'attr': { 'placeholder': 'Nom', 'class': 'field input ', 'autofocus': true}}) }}
+        {{ form_widget(form.email, {'attr': {'placeholder': 'Email', 'class': 'field input' }}) }}
+        {{ form_widget(form.message, {'attr': { 'placeholder': 'Message', 'class': 'field input' }}) }}
         <button class="btn input">{{ button_label|default('Envoyer') }}</button>
     {{ form_end(form) }}
 
