@@ -1,22 +1,115 @@
 @import url('https://fonts.googleapis.com/css2?family=Zen+Antique+Soft&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 body {
     background-color: lightgray;
 }
 *{
-    font-family: 'Zen Antique Soft', serif;
-    padding: 5px;
+    font-family: 'Press Start 2P', cursive;
+    /* padding: 10px; */
+    line-height:50px !important;
+
 }
 .p-5{
     padding: 10px;
 }
 p{
-    font-size: 0.8em;
+    font-size: 0.5em;
+    word-spacing: -10px;
+}
+h1{
+    text-align: center;
+    padding: 8px;
+    font-family: 'Zen Antique Soft', serif;
+    line-height:80px !important;
+}
+h2{
+    padding: 8px;
+    font-size: 0.6em;
+}
+nav{
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center;
+
+}
+nav  a{ /* tous les liens a à l'intérieur de la balise nav */
+    width: 20%;
+    display: flex ;
+    align-items: center;
+    height: 50px;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+footer{
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-evenly!important;
+    align-items: center;
 }
 img{
-
+    margin: auto;
     max-width: 500px;
     object-fit: cover;
 }
 .container{
     z-index: 0 !important;
 }
+ul{
+    margin: auto;
+    list-style-type: none;
+    z-index: 1;
+    font-size: 0.6em;
+}
+.center{
+    margin: 250px auto 250px auto ;
+    text-align: center;
+}
+.small{
+    font-size: 0.4em !important;
+    padding: 5px;
+}
+.logo{
+    height: 50px !important;
+}
+.input{
+    display: inline;
+    margin: auto;
+}
+.grid2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.end{
+    text-align: center;
+}
+td, th{
+    font-size: 0.5em;
+}
+.table{
+    width: 100%;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+}
+
+    
+@media only screen and (min-width: 900px) {
+    body {
+      margin: 0 10rem 0 10rem;
+    }
+  }
+  @media only screen and (max-width: 900px) {
+    body {
+      margin: 0 1rem 0 1rem !important;
+    }
+    *{
+        font-size: 1rem !important;
+    }
+    img{
+        max-width:100%;
+    }
+    button{
+        word-wrap: break-word;
+    }
+  }

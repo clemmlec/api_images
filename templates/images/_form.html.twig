@@ -1,5 +1,5 @@
 {{ form_start(form,{'attr': { 'class': 'field' }}) }}
-    {{ form_widget(form.imageFile,{'attr': { 'class': 'input' }} ) }}
-    {{ form_row(form.tag,{'attr': { 'class': 'input' }} ) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    {{ form_widget(form.imageFile,{'attr': { 'class': 'input field' }} ) }}
+    {{ form_widget(form.tag,{'attr': { 'class': 'input field', 'placeholder': 'Tag', 'autofocus': true}} ) }}
+    <button class="btn success">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}

@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}doc | {{ parent() }}{% endblock %}
+
+{% block body %}
+    <section class="container">
+        {# <h1>api_images est en cours<br>  de développement</h1> #}
+        <h1>Liste des tags</h1>
+        <div class="progress indeterminate">
+          <div class="bar"></div>
+        </div>
+        <ul>
+            <li>/food</li>
+            <li>/tech</li>
+            <li>/nature</li>
+            <li>/clothes</li>
+            <li>/car</li>
+        </ul>
+
+        <p class="center">Pour toutes question / suggestions <br> 
+            <button class="btn success"><a href="{{ path('contact') }}">contact</a></button> <br>
+            <a class="btn" href="https://github.com/clemmlec"> git hub</a>
+        </p>
+
+        {# <img src="https://127.0.0.1:8000/photo" alt=""> #}
+        <div class="container dark">
+            <h1>Mentions légales</h1>
+        </div>
+        <div class="container">
+            
+            <ul id="mentions">
+                <li class="grid2">Site créer par <a class="btn grid2 end" href="https://github.com/clemmlec">Clem
+                    <img class="logo" src="https://cdn-icons-png.flaticon.com/512/25/25231.png"></a>
+                </li>
+                <li class="grid2">css: PSone de <a class="btn grid2 end" href="https://github.com/98mprice/PSone.css">98mprice
+                    <img class="logo" src="https://127.0.0.1:8000/images/logo.png"></a>
+                </li>
+                <li class="grid2">fait avec <a class="btn grid2 end" href="https://symfony.com/">symfony
+                    <img class="logo" src="https://cdn.worldvectorlogo.com/logos/symfony.svg"></a>
+                </li>
+                
+            </ul>
+            
+
+        </div>
+    </section>
+{% endblock %}
