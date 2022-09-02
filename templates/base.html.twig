@@ -23,5 +23,11 @@
             </nav>
         </header>
         {% block body %}{% endblock %}
+        <footer class="container">
+            <button class="btn small"><a href="{{ path('doc' , {'_fragment': 'mentions'} )}}">mentions légale</a></button>
+            <button class="btn small">Api_images © 2022</button>
+            <button class="btn small"><a href="{{ path('contact') }}">contact</a></button>
+            
+        </footer>
     </body>
 </html>

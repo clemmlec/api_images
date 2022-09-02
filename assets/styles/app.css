@@ -13,11 +13,18 @@ body {
     padding: 10px;
 }
 p{
-    font-size: 0.8em;
+    font-size: 0.5em;
+    word-spacing: -10px;
 }
 h1{
+    text-align: center;
+    padding: 8px;
     font-family: 'Zen Antique Soft', serif;
     line-height:80px !important;
+}
+h2{
+    padding: 8px;
+    font-size: 0.6em;
 }
 nav{
     display: flex !important;
@@ -35,12 +42,38 @@ nav  a{ /* tous les liens a à l'intérieur de la balise nav */
     font-family: Arial, sans-serif;
     color: white;
 }
-
+footer{
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-evenly!important;
+    align-items: center;
+}
 img{
-
+    margin: auto;
     max-width: 500px;
     object-fit: cover;
 }
 .container{
     z-index: 0 !important;
+}
+ul{
+    margin: auto;
+    list-style-type: none;
+    z-index: 1;
+    font-size: 0.6em;
+}
+.center{
+    margin: 250px auto 250px auto ;
+    text-align: center;
+}
+.small{
+    font-size: 0.4em !important;
+    padding: 5px;
+}
+.logo{
+    width: 75px !important;
+}
+.input{
+    display: inline;
+    margin: auto;
 }
