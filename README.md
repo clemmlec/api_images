@@ -35,6 +35,6 @@ Prérequi
 
 Pour lancer le server local :
 
-  symfony server:start
+    symfony server:start
   
   
