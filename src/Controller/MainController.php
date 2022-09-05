@@ -77,4 +77,23 @@ class MainController extends AbstractController
         // return new BinaryFileResponse($filename);
         return $this->redirect('https://127.0.0.1:8000/images/' . $files[0]->getImageName());
     }
+
+    #[Route('/photo/{tag}/{id}', name: 'photo_tag_id')]
+    public function photoTagId(string $tag, int $id,Request $request, ImagesRepository $repo)
+    {
+
+
+        $files= $repo->findImageWithTagId($tag,$id);
+
+        if(!$files){
+            return new BinaryFileResponse(
+                $this->getParameter('kernel.project_dir') . '\public\images\default.jpg'
+            );
+        }
+
+        // $filename = $this->getParameter('kernel.project_dir') . '\public\images\\' . $files[0]->getImageName();
+
+        // return new BinaryFileResponse($filename);
+        return $this->redirect('https://127.0.0.1:8000/images/' . $files[0]->getImageName());
+    }
 }
