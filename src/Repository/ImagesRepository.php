@@ -39,47 +39,51 @@ class ImagesRepository extends ServiceEntityRepository
         }
     }
 
-    public function findRandImage(): array
+    public function findRandImage(): ?Images
     {
         $query = $this->createQueryBuilder('a')
             ->orderBy('RAND()')
             ->setMaxResults(1)
-            ;
-        return  $query->getQuery()->getResult();
+            ->getQuery()
+            ->getOneOrNullResult();
+
+        return $query;
     }
 
-    public function findRandImageWithTag($tag): array
+    public function findRandImageWithTag($tag): ?Images
     {
         $query = $this->createQueryBuilder('a')
             ->andWhere('a.tag = :val')
             ->setParameter('val', $tag)
             ->orderBy('RAND()')
             ->setMaxResults(1)
-            ;
-        return  $query->getQuery()->getResult();
-    }
-//    /**
-//     * @return Images[] Returns an array of Images objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('i')
-//            ->andWhere('i.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('i.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+            ->getQuery()
+            ->getOneOrNullResult();
 
-//    public function findOneBySomeField($value): ?Images
-//    {
-//        return $this->createQueryBuilder('i')
-//            ->andWhere('i.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+        return $query;
+    }
+    //    /**
+    //     * @return Images[] Returns an array of Images objects
+    //     */
+    //    public function findByExampleField($value): array
+    //    {
+    //        return $this->createQueryBuilder('i')
+    //            ->andWhere('i.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->orderBy('i.id', 'ASC')
+    //            ->setMaxResults(10)
+    //            ->getQuery()
+    //            ->getResult()
+    //        ;
+    //    }
+
+    //    public function findOneBySomeField($value): ?Images
+    //    {
+    //        return $this->createQueryBuilder('i')
+    //            ->andWhere('i.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->getQuery()
+    //            ->getOneOrNullResult()
+    //        ;
+    //    }
 }

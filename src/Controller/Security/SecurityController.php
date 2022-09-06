@@ -5,7 +5,6 @@ namespace App\Controller\Security;
 use App\Entity\User;
 use App\Form\UserType;
 use App\Repository\UserRepository;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,22 +25,21 @@ class SecurityController extends AbstractController
 
         return $this->render('login.html.twig', [
             'error' => $error,
-            'lastUsername' => $lastUsername
+            'lastUsername' => $lastUsername,
         ]);
     }
 
     #[Route('/register', name: 'register')]
     public function register(
-        Request $request, 
-        UserPasswordHasherInterface $passwordEncoder, 
-        EntityManagerInterface $em
-    )
-    {
+        Request $request,
+        UserPasswordHasherInterface $passwordEncoder,
+        UserRepository $userRepository
+    ) {
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
 
         $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             $user->setPassword(
                 $passwordEncoder->hashPassword(
                     $user,
@@ -49,17 +47,14 @@ class SecurityController extends AbstractController
                 )
             );
 
-            $em->persist($user);
-            $em->flush();
+            $userRepository->add($user, true);
             $this->addFlash('success', 'Compte créer avec success');
-            return  $this->redirectToRoute('login');
 
+            return $this->redirectToRoute('login');
         }
-
 
         return $this->renderForm('register.html.twig', [
             'form' => $form,
         ]);
-
     }
 }
