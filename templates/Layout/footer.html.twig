@@ -1,0 +1,12 @@
+<footer>
+    <a href="{{ path('doc' , {'_fragment': 'mentions'} )}}">mentions légale</a>
+       
+    {% if app.user and is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('app_images_index') }}">Admin</a>
+    {% else %}
+        Api_images © 2022
+    {% endif %}
+   
+    <a href="{{ path('contact') }}">contact</a>
+    
+</footer>

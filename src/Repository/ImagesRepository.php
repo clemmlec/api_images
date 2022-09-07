@@ -62,6 +62,34 @@ class ImagesRepository extends ServiceEntityRepository
 
         return $query;
     }
+
+    public function findImageWithTagId($tag,$id): array
+    {
+
+        $query = $this->createQueryBuilder('a')
+            ->andWhere('a.tag = :val')
+            ->setParameter('val', $tag)
+            ;
+
+        $idMax = count($query->getQuery()->getResult());
+
+        while ($id >= $idMax){
+            $id -= $idMax;
+        }
+
+        if($id <=0){$id=1;}
+
+        $query = $this->createQueryBuilder('a')
+        ->andWhere('a.tag = :val')
+        ->setParameter('val', $tag)
+        ->setFirstResult($id)
+        ->setMaxResults(1)
+        ;
+        
+        
+        return  $query->getQuery()->getResult();
+    }
+
     //    /**
     //     * @return Images[] Returns an array of Images objects
     //     */
