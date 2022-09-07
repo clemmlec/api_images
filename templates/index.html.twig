@@ -1,55 +1,61 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}home | {{ parent() }}{% endblock %}
+{% block title %}home |
+	{{ parent() }}
+{% endblock %}
 
 {% block body %}
-    <section class="container">
-        <div class=" dark">
-            <h1>Api_images</h1>
-        </div>
-        <div class=" light">
-            <p class="p-5">
-                Utilise des images aléatoires pour tes constructions de sites
-            </p>
-        </div>
+	<section class="container">
+		<div class="container dark">
+			<h1>Api_images</h1>
+		</div>
+		<div class="container light">
+			<p class="p-5">
+				Utilise des images aléatoires pour tes constructions de sites
+			</p>
+		</div>
 
-        <div class="content dark">
-            <h1>Simple à utiliser</h1>
-        </div>
+		<div class="container dark">
+			<h1>Simple à utiliser</h1>
+		</div>
 
-        <div class="content light">
-            <p class="p-5">pour génerer une image aléatoire :</p>
-        </div>
-        <div class="content light">
-            <button class="btn primary" data-copy-link>www.api_images/photo</button>
-            <img src="https://127.0.0.1:8000/photo">
-        </div>
-        
-        <div class="content dark">
-            <h1 class="p-5">Pour trier par catégorie :</h1>
-            <p>Ajoute un tag : </p>
-        </div>
-        <div class="content light">
-            <button class="btn primary" data-copy-link>www.api_images/photo/food</button>
-            <img src="https://127.0.0.1:8000/photo/food">
-        </div>
-        <div class="content light">
-            <button class="btn primary" data-copy-link>www.api_images/photo/tech</button>
-            <img src="https://127.0.0.1:8000/photo/tech">
-        </div>
-        <div class="content light">
-            <button class="btn primary" data-copy-link>www.api_images/photo/nature</button>
-            <img src="https://127.0.0.1:8000/photo/nature">
-        </div>
-        <div class="content light">
-            <button class="btn primary" data-copy-link>www.api_images/photo/clothes</button>
-            <img src="https://127.0.0.1:8000/photo/clothes">
-        </div>
-        <div class="content light">
-            <button class="btn primary" data-copy-link>www.api_images/photo/car</button>
-            <img src="https://127.0.0.1:8000/photo/car">
-        </div>
-        <div class="content light">
+		<div class="container light">
+			<p class="p-5">pour génerer une image aléatoire :</p>
+		</div>
+		<div class="container light">
+			<button class="btn primary" data-copy-link>www.api_images/photo</button>
+			<img src="{{ app.request.uri }}photo">
+		</div>
+
+		<div class="container dark">
+			<h1 class="p-5">Pour trier par catégorie :</h1>
+		</div>
+		<div class="container light">
+			<p>il suffit de rajouter un tag :
+			</p>
+		</div>
+		<div class="container light">
+			<button class="btn primary" data-copy-link>www.api_images/photo/food</button>
+			<img src="{{ app.request.uri }}photo/food">
+		</div>
+		<div class="container light">
+			<button class="btn primary" data-copy-link>www.api_images/photo/tech</button>
+			<img src="{{ app.request.uri }}photo/tech">
+		</div>
+		<div class="container light">
+			<button class="btn primary" data-copy-link>www.api_images/photo/nature</button>
+			<img src="{{ app.request.uri }}photo/nature">
+		</div>
+		<div class="container light">
+			<button class="btn primary" data-copy-link>www.api_images/photo/clothes</button>
+			<img src="{{ app.request.uri }}photo/clothes">
+		</div>
+		<div class="container light">
+			<button class="btn primary" data-copy-link>www.api_images/photo/car</button>
+			<img src="{{ app.request.uri }}photo/car">
+		</div>
+    
+     <div class="content light">
             <button class="btn primary" data-copy-link>www.api_images/photo/abstract</button>
             <img src="https://127.0.0.1:8000/photo/abstract">
         </div>
@@ -89,8 +95,10 @@
             <button class="btn primary" data-copy-link>www.api_images/photo/work</button>
             <img src="https://127.0.0.1:8000/photo/work">
         </div>
-    </section>
-    <section class="container">
+
+	</section>
+  
+  <section class="container">
         <div class="content light">
             <h1>Pour avoir des images différentes</h1>
         </div>
@@ -120,5 +128,6 @@
                 <img src="https://127.0.0.1:8000/photo/food/6">
            </div>
         </div>
-    </section>
+  </section>
+
 {% endblock %}

@@ -41,9 +41,9 @@ class ImagesController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_images_show', methods: ['GET'])]
-    public function show(?Images $image,ImagesRepository $imagesRepository): Response
+    public function show(?Images $image, ImagesRepository $imagesRepository): Response
     {
-        if(!$image instanceof Images){
+        if (!$image instanceof Images) {
             return $this->render('images/index.html.twig', [
                 'error' => 'cette image n\'existe pas',
                 'images' => $imagesRepository->findAll(),

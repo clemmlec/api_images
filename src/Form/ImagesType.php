@@ -4,10 +4,10 @@ namespace App\Form;
 
 use App\Entity\Images;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Vich\UploaderBundle\Form\Type\VichImageType;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class ImagesType extends AbstractType
 {
@@ -18,7 +18,7 @@ class ImagesType extends AbstractType
                 'label' => 'Ajoute une image:',
                 'required' => true,
                 'image_uri' => true,
-                'download_uri'=> false,
+                'download_uri' => false,
                 // 'mapped' => false,
             ])
             ->add('tag', TextType::class, [

@@ -12,14 +12,14 @@ import './styles/app.scss';
 import './bootstrap';
 
 const copy = document.querySelectorAll('[data-copy-link]');
-    
-    if(copy){
-        copy.forEach((element=>{
-            element.addEventListener('click', () =>  {
-                let value = element.innerHTML;
-                navigator.clipboard.writeText(value);
-                element.innerHTML = 'lien copié ✅';
-            });
-        }))
-    }
+
+if (copy) {
+    copy.forEach((element => {
+        element.addEventListener('click', () => {
+            let value = element.innerHTML;
+            navigator.clipboard.writeText(value);
+            element.innerHTML = 'lien copié ✅';
+        });
+    }))
+}
 
