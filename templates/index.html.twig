@@ -6,128 +6,127 @@
 
 {% block body %}
 	<section class="container">
-		<div class="container dark">
+		<div class="content">
 			<h1>Api_images</h1>
 		</div>
-		<div class="container light">
+		<div class="content">
 			<p class="p-5">
 				Utilise des images aléatoires pour tes constructions de sites
 			</p>
 		</div>
 
-		<div class="container dark">
+		<div class="content">
 			<h1>Simple à utiliser</h1>
 		</div>
 
-		<div class="container light">
+		<div class="content">
 			<p class="p-5">pour génerer une image aléatoire :</p>
 		</div>
-		<div class="container light">
+		<div class="content card">
 			<button class="btn primary" data-copy-link>www.api_images/photo</button>
 			<img src="{{ app.request.uri }}photo">
 		</div>
 
-		<div class="container dark">
+		<div class="content">
 			<h1 class="p-5">Pour trier par catégorie :</h1>
 		</div>
-		<div class="container light">
+		<div class="content">
 			<p>il suffit de rajouter un tag :
 			</p>
 		</div>
-		<div class="container light">
+		<div class="content card">
 			<button class="btn primary" data-copy-link>www.api_images/photo/food</button>
 			<img src="{{ app.request.uri }}photo/food">
 		</div>
-		<div class="container light">
+		<div class="content card">
 			<button class="btn primary" data-copy-link>www.api_images/photo/tech</button>
 			<img src="{{ app.request.uri }}photo/tech">
 		</div>
-		<div class="container light">
+		<div class="content card">
 			<button class="btn primary" data-copy-link>www.api_images/photo/nature</button>
 			<img src="{{ app.request.uri }}photo/nature">
 		</div>
-		<div class="container light">
+		<div class="content card">
 			<button class="btn primary" data-copy-link>www.api_images/photo/clothes</button>
 			<img src="{{ app.request.uri }}photo/clothes">
 		</div>
-		<div class="container light">
+		<div class="content card">
 			<button class="btn primary" data-copy-link>www.api_images/photo/car</button>
 			<img src="{{ app.request.uri }}photo/car">
 		</div>
     
-     <div class="content light">
+        <div class="content card">
             <button class="btn primary" data-copy-link>www.api_images/photo/abstract</button>
-            <img src="https://127.0.0.1:8000/photo/abstract">
+            <img src="{{ app.request.uri }}photo/abstract">
         </div>
-        <div class="content light">
+        <div class="content card">
             <button class="btn primary" data-copy-link>www.api_images/photo/animal</button>
-            <img src="https://127.0.0.1:8000/photo/animal">
+            <img src="{{ app.request.uri }}photo/animal">
         </div>
-        <div class="content light">
+        <div class="content card">
             <button class="btn primary" data-copy-link>www.api_images/photo/fruit</button>
-            <img src="https://127.0.0.1:8000/photo/fruit">
+            <img src="{{ app.request.uri }}photo/fruit">
         </div>
-        <div class="content light">
+        <div class="content card">
             <button class="btn primary" data-copy-link>www.api_images/photo/furniture</button>
-            <img src="https://127.0.0.1:8000/photo/furniture">
+            <img src="{{ app.request.uri }}photo/furniture">
         </div>
-        <div class="content light">
+        <div class="content card">
             <button class="btn primary" data-copy-link>www.api_images/photo/music</button>
-            <img src="https://127.0.0.1:8000/photo/music">
+            <img src="{{ app.request.uri }}photo/music">
         </div>
-        <div class="content light">
+        <div class="content card">
             <button class="btn primary" data-copy-link>www.api_images/photo/plant</button>
-            <img src="https://127.0.0.1:8000/photo/plant">
+            <img src="{{ app.request.uri }}photo/plant">
         </div>
-        <div class="content light">
+        <div class="content card">
             <button class="btn primary" data-copy-link>www.api_images/photo/spectacle</button>
-            <img src="https://127.0.0.1:8000/photo/spectacle">
+            <img src="{{ app.request.uri }}photo/spectacle">
         </div>
-        <div class="content light">
+        <div class="content card">
             <button class="btn primary" data-copy-link>www.api_images/photo/sport</button>
-            <img src="https://127.0.0.1:8000/photo/sport">
+            <img src="{{ app.request.uri }}photo/sport">
         </div>
-        <div class="content light">
+        <div class="content card">
             <button class="btn primary" data-copy-link>www.api_images/photo/city</button>
-            <img src="https://127.0.0.1:8000/photo/city">
+            <img src="{{ app.request.uri }}photo/city">
         </div>
-        <div class="content light">
+        <div class="content card">
             <button class="btn primary" data-copy-link>www.api_images/photo/work</button>
-            <img src="https://127.0.0.1:8000/photo/work">
+            <img src="{{ app.request.uri }}photo/work">
         </div>
 
 	</section>
   
-  <section class="container">
-        <div class="content light">
-            <h1>Pour avoir des images différentes</h1>
+  <section class="container flex">
+        <div class="content">
+            <h1>Pour avoir différentes images :</h1>
         </div>
-        <div class="content light">
-           <div class="content">
-                <button class="btn primary" data-copy-link>www.api_images/photo/food/1</button>
-                <img src="https://127.0.0.1:8000/photo/food/1">
-           </div>
-           <div class="content">
-                <button class="btn primary" data-copy-link>www.api_images/photo/food/2</button>
-                <img src="https://127.0.0.1:8000/photo/food/2">
-           </div>
-           <div class="content">
-                <button class="btn primary" data-copy-link>www.api_images/photo/food/3</button>
-                <img src="https://127.0.0.1:8000/photo/food/3">
-           </div>
-           <div class="content">
-                <button class="btn primary" data-copy-link>www.api_images/photo/food/4</button>
-                <img src="https://127.0.0.1:8000/photo/food/4">
-           </div>
-           <div class="content">
-                <button class="btn primary" data-copy-link>www.api_images/photo/food/5</button>
-                <img src="https://127.0.0.1:8000/photo/food/5">
-           </div>
-           <div class="content">
-                <button class="btn primary" data-copy-link>www.api_images/photo/food/6</button>
-                <img src="https://127.0.0.1:8000/photo/food/6">
-           </div>
+        <div class="content card">
+            <button class="btn primary" data-copy-link>www.api_images/photo/food/1</button>
+            <img src="{{ app.request.uri }}photo/food/1">
         </div>
+        <div class="content card">
+            <button class="btn primary" data-copy-link>www.api_images/photo/food/2</button>
+            <img src="{{ app.request.uri }}photo/food/2">
+        </div>
+        <div class="content card">
+            <button class="btn primary" data-copy-link>www.api_images/photo/food/3</button>
+            <img src="{{ app.request.uri }}photo/food/3">
+        </div>
+        <div class="content card">
+            <button class="btn primary" data-copy-link>www.api_images/photo/food/4</button>
+            <img src="{{ app.request.uri }}photo/food/4">
+        </div>
+        <div class="content card">
+            <button class="btn primary" data-copy-link>www.api_images/photo/food/5</button>
+            <img src="{{ app.request.uri }}photo/food/5">
+        </div>
+        <div class="content card">
+            <button class="btn primary" data-copy-link>www.api_images/photo/food/6</button>
+            <img src="{{ app.request.uri }}photo/food/6">
+        </div>
+
   </section>
 
 {% endblock %}

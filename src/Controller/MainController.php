@@ -55,11 +55,12 @@ class MainController extends AbstractController
         if ($file) {
             $filename = $this->getParameter('kernel.project_dir').'/public/images/'.$file->getImageName();
 
-            if (file_exists($filename)) {
-                return new BinaryFileResponse($filename);
-            }
+            return new BinaryFileResponse($filename);
+            
         } else {
-            return new JsonResponse(null, 404);
+            return new BinaryFileResponse(
+                $this->getParameter('kernel.project_dir').'/public/images/default.jpg'
+            );
         }
     }
 
@@ -71,11 +72,9 @@ class MainController extends AbstractController
         if ($file) {
             $filename = $this->getParameter('kernel.project_dir').'/public/images/'.$file->getImageName();
 
-            if (file_exists($filename)) {
-                return new BinaryFileResponse($filename);
-            } else {
-                return new JsonResponse(null, 404);
-            }
+ 
+            return new BinaryFileResponse($filename);
+
         } else {
             return new BinaryFileResponse(
                 $this->getParameter('kernel.project_dir').'/public/images/default.jpg'

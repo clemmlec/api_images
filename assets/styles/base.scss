@@ -3,7 +3,7 @@
 
 body {
 	background: #212121;
-	font-size:22px;
+	font-size:17px;
 	line-height: 32px;
 	color: #ffffff;
 	margin: 0;
@@ -35,7 +35,7 @@ a {
 
 h1 {
 	text-align:center;
-	font-size:60px;
+	font-size:60;
 	line-height: 70px;
 	font-family: 'Bree Serif', 'serif';
 }
@@ -48,14 +48,17 @@ p {
 
 img{
     max-height: 400px;
-    margin: auto;
+	max-width: 98%;
+    margin: auto 0 auto 0;
+	position: relative;
+	top: 5px;
 }
 button{
 	cursor: pointer;
 }
 
 .container{
-    display: grid;
+	display: grid;
 	max-width: 80%;
 	margin: auto;
 }
@@ -64,10 +67,28 @@ button{
 	margin: auto;
 	text-align: center;
 	background-color: #616161;
-	margin-bottom: 20px;
+	margin-top: 20px;
+	
+
 }
 .btn{
 	font-size: 1.8em;
 	width: 100%;
+
+}
+
+.card{
+	max-width: 500px;
+    flex: 0 0 auto;
+    display: inline-block;
+	padding-bottom:0px;
+	height: min-content;
+}
+
+.flex{
+	display: flex;
+	justify-content: space-between;
+    flex-wrap: wrap;
+    align-items:center;
 
 }
