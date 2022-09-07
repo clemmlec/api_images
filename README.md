@@ -28,8 +28,6 @@ Prérequi
     php bin/console doctrine:database:create
 
   Exécuter la migration en base de donnée : 
-  
-    php bin/console make:migration
     
     php bin/console doctrine:migration:migrate
 
