@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Entity;
-use Vich\Uploadable;
-use DateTimeImmutable;
-use Vich\UploadableField;
-use Doctrine\ORM\Mapping as ORM;
+
 use App\Repository\ImagesRepository;
+use DateTimeImmutable;
+use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
+use Vich\Uploadable;
+use Vich\UploadableField;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: ImagesRepository::class)]
@@ -53,7 +54,7 @@ class Images
     {
         return $this->imageFile;
     }
-    
+
     public function getImageName(): ?string
     {
         return $this->imageName;
@@ -78,12 +79,12 @@ class Images
         return $this;
     }
 
-    public function getImageUpdatedAt(): ?\DateTimeImmutable
+    public function getImageUpdatedAt(): ?DateTimeImmutable
     {
         return $this->imageUpdatedAt;
     }
 
-    public function setImageUpdatedAt(?\DateTimeImmutable $imageUpdatedAt): self
+    public function setImageUpdatedAt(?DateTimeImmutable $imageUpdatedAt): self
     {
         $this->imageUpdatedAt = $imageUpdatedAt;
 
