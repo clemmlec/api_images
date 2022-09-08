@@ -78,12 +78,12 @@ class ImagesRepository extends ServiceEntityRepository
 
         if($id <=0){$id=1;}
         $query = $this->createQueryBuilder('a')
-        ->andWhere('a.tag = :val')
-        ->setParameter('val', $tag)
-        ->setFirstResult($id)
-        ->setMaxResults(1)
-        ->getQuery()
-        ->getOneOrNullResult()
+            ->andWhere('a.tag = :val')
+            ->setParameter('val', $tag)
+            ->setFirstResult($id)
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult()
         ;
         return  $query;
     }

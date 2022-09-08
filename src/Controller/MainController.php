@@ -57,61 +57,51 @@ class MainController extends AbstractController
             $filename = $this->getParameter('kernel.project_dir').'/public/images/'.$file->getImageName();
             if( \file_exists($filename)) {
                 return new BinaryFileResponse($filename);
-            }else{
-                return new BinaryFileResponse(
-                    $this->getParameter('kernel.project_dir').'/public/images/default.jpg'
-                );
             }
-            
-        } else {
-            return new BinaryFileResponse(
-                $this->getParameter('kernel.project_dir').'/public/images/default.jpg'
-            );
-        }
+        } 
+
+        return new BinaryFileResponse(
+            $this->getParameter('kernel.project_dir').'/public/images/default.jpg'
+        );
+        
     }
 
     #[Route('/photo/{tag}', name: 'photo_tag')]
     public function photoTag(string $tag, ImagesRepository $repo)
     {
         $file = $repo->findRandImageWithTag($tag);
+
         if ($file) {
             $filename = $this->getParameter('kernel.project_dir').'/public/images/'.$file->getImageName();
 
             if( \file_exists($filename)) {
                 return new BinaryFileResponse($filename);
-            }else{
-                return new BinaryFileResponse(
-                    $this->getParameter('kernel.project_dir').'/public/images/default.jpg'
-                );
             }
+        } 
 
-        } else {
-            return new BinaryFileResponse(
-                $this->getParameter('kernel.project_dir').'/public/images/default.jpg'
-            );
-        }
+        return new BinaryFileResponse(
+            $this->getParameter('kernel.project_dir').'/public/images/default.jpg'
+        );
+        
     }
 
     #[Route('/photo/{tag}/{id}', name: 'photo_tag_id')]
     public function photoTagId(string $tag, int $id,Request $request, ImagesRepository $repo)
     {
 
-
         $file= $repo->findImageWithTagId($tag,$id);
         if($file){
             $filename = $this->getParameter('kernel.project_dir').'/public/images/'.$file->getImageName();
+            
             if( \file_exists($filename)) {
                 return new BinaryFileResponse($filename);
-            }else{
-                return new BinaryFileResponse(
-                    $this->getParameter('kernel.project_dir').'/public/images/default.jpg'
-                );
             }
-        }else{
-            return new BinaryFileResponse(
-                $this->getParameter('kernel.project_dir').'/public/images/default.jpg'
-            );
         }
+            
+        return new BinaryFileResponse(
+            $this->getParameter('kernel.project_dir').'/public/images/default.jpg'
+        );
+        
 
        
     }
