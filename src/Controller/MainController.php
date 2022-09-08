@@ -3,13 +3,14 @@
 namespace App\Controller;
 
 use App\Form\ContactType;
-use App\Repository\ImagesRepository;
 use App\Services\MailerService;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\BinaryFileResponse;
-use Symfony\Component\HttpFoundation\JsonResponse;
+use App\Repository\ImagesRepository;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class MainController extends AbstractController
 {
@@ -54,8 +55,13 @@ class MainController extends AbstractController
 
         if ($file) {
             $filename = $this->getParameter('kernel.project_dir').'/public/images/'.$file->getImageName();
-
-            return new BinaryFileResponse($filename);
+            if( \file_exists($filename)) {
+                return new BinaryFileResponse($filename);
+            }else{
+                return new BinaryFileResponse(
+                    $this->getParameter('kernel.project_dir').'/public/images/default.jpg'
+                );
+            }
             
         } else {
             return new BinaryFileResponse(
@@ -68,12 +74,16 @@ class MainController extends AbstractController
     public function photoTag(string $tag, ImagesRepository $repo)
     {
         $file = $repo->findRandImageWithTag($tag);
-
         if ($file) {
             $filename = $this->getParameter('kernel.project_dir').'/public/images/'.$file->getImageName();
 
- 
-            return new BinaryFileResponse($filename);
+            if( \file_exists($filename)) {
+                return new BinaryFileResponse($filename);
+            }else{
+                return new BinaryFileResponse(
+                    $this->getParameter('kernel.project_dir').'/public/images/default.jpg'
+                );
+            }
 
         } else {
             return new BinaryFileResponse(
@@ -87,17 +97,22 @@ class MainController extends AbstractController
     {
 
 
-        $files= $repo->findImageWithTagId($tag,$id);
-
-        if(!$files){
+        $file= $repo->findImageWithTagId($tag,$id);
+        if($file){
+            $filename = $this->getParameter('kernel.project_dir').'/public/images/'.$file->getImageName();
+            if( \file_exists($filename)) {
+                return new BinaryFileResponse($filename);
+            }else{
+                return new BinaryFileResponse(
+                    $this->getParameter('kernel.project_dir').'/public/images/default.jpg'
+                );
+            }
+        }else{
             return new BinaryFileResponse(
-                $this->getParameter('kernel.project_dir') . '\public\images\default.jpg'
+                $this->getParameter('kernel.project_dir').'/public/images/default.jpg'
             );
         }
 
-        // $filename = $this->getParameter('kernel.project_dir') . '\public\images\\' . $files[0]->getImageName();
-
-        // return new BinaryFileResponse($filename);
-        return $this->redirect('https://127.0.0.1:8000/images/' . $files[0]->getImageName());
+       
     }
 }
