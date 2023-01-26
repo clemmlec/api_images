@@ -1,7 +1,7 @@
 
 ![GitHub top language](https://img.shields.io/github/languages/top/clemmlec/api_images)
 ![GitHub language count](https://img.shields.io/github/languages/count/clemmlec/api_images)
-![Bannière](https://github.com/clemmlec/api_images/api_images.png)
+![Bannière](https://github.com/clemmlec/api_images/api_image.png)
 
 Prérequi 
 
