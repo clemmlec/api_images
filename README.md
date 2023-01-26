@@ -1,6 +1,10 @@
 
 ![GitHub top language](https://img.shields.io/github/languages/top/clemmlec/api_images)
 ![GitHub language count](https://img.shields.io/github/languages/count/clemmlec/api_images)
+
+Site conçu avesle framework Symfony sous forme d'API.<br>
+L'idée est de permettre d'ajouter des images temporaires pendant le developpement d'un site.<br>
+Il suffit d'appeler l'url dans le source d'une balise image pour avoir une image aléaotire suivant la categorie choisi.
 ![Bannière](https://github.com/clemmlec/api_images/blob/master/api_image.png)
 
 Prérequi 
