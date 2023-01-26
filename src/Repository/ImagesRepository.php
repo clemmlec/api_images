@@ -59,11 +59,10 @@ class ImagesRepository extends ServiceEntityRepository
             ->setMaxResults(1)
             ->getQuery()
             ->getOneOrNullResult();
-
         return $query;
     }
 
-    public function findImageWithTagId($tag,$id): array
+    public function findImageWithTagId($tag,$id): ?Images
     {
 
         $query = $this->createQueryBuilder('a')
@@ -78,16 +77,15 @@ class ImagesRepository extends ServiceEntityRepository
         }
 
         if($id <=0){$id=1;}
-
         $query = $this->createQueryBuilder('a')
-        ->andWhere('a.tag = :val')
-        ->setParameter('val', $tag)
-        ->setFirstResult($id)
-        ->setMaxResults(1)
+            ->andWhere('a.tag = :val')
+            ->setParameter('val', $tag)
+            ->setFirstResult($id)
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult()
         ;
-        
-        
-        return  $query->getQuery()->getResult();
+        return  $query;
     }
 
     //    /**

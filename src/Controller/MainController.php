@@ -3,13 +3,14 @@
 namespace App\Controller;
 
 use App\Form\ContactType;
-use App\Repository\ImagesRepository;
 use App\Services\MailerService;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\BinaryFileResponse;
-use Symfony\Component\HttpFoundation\JsonResponse;
+use App\Repository\ImagesRepository;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class MainController extends AbstractController
 {
@@ -54,14 +55,15 @@ class MainController extends AbstractController
 
         if ($file) {
             $filename = $this->getParameter('kernel.project_dir').'/public/images/'.$file->getImageName();
+            if( \file_exists($filename)) {
+                return new BinaryFileResponse($filename);
+            }
+        } 
 
-            return new BinaryFileResponse($filename);
-            
-        } else {
-            return new BinaryFileResponse(
-                $this->getParameter('kernel.project_dir').'/public/images/default.jpg'
-            );
-        }
+        return new BinaryFileResponse(
+            $this->getParameter('kernel.project_dir').'/public/images/default.jpg'
+        );
+        
     }
 
     #[Route('/photo/{tag}', name: 'photo_tag')]
@@ -72,32 +74,35 @@ class MainController extends AbstractController
         if ($file) {
             $filename = $this->getParameter('kernel.project_dir').'/public/images/'.$file->getImageName();
 
- 
-            return new BinaryFileResponse($filename);
+            if( \file_exists($filename)) {
+                return new BinaryFileResponse($filename);
+            }
+        } 
 
-        } else {
-            return new BinaryFileResponse(
-                $this->getParameter('kernel.project_dir').'/public/images/default.jpg'
-            );
-        }
+        return new BinaryFileResponse(
+            $this->getParameter('kernel.project_dir').'/public/images/default.jpg'
+        );
+        
     }
 
     #[Route('/photo/{tag}/{id}', name: 'photo_tag_id')]
     public function photoTagId(string $tag, int $id,Request $request, ImagesRepository $repo)
     {
 
-
-        $files= $repo->findImageWithTagId($tag,$id);
-
-        if(!$files){
-            return new BinaryFileResponse(
-                $this->getParameter('kernel.project_dir') . '\public\images\default.jpg'
-            );
+        $file= $repo->findImageWithTagId($tag,$id);
+        if($file){
+            $filename = $this->getParameter('kernel.project_dir').'/public/images/'.$file->getImageName();
+            
+            if( \file_exists($filename)) {
+                return new BinaryFileResponse($filename);
+            }
         }
+            
+        return new BinaryFileResponse(
+            $this->getParameter('kernel.project_dir').'/public/images/default.jpg'
+        );
+        
 
-        // $filename = $this->getParameter('kernel.project_dir') . '\public\images\\' . $files[0]->getImageName();
-
-        // return new BinaryFileResponse($filename);
-        return $this->redirect('https://127.0.0.1:8000/images/' . $files[0]->getImageName());
+       
     }
 }
